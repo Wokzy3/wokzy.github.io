@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unforgivable.xyz</title>
+
+    <meta property="og:title" content="politiaromana.info">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://politiaromana.info">
+    <meta property="og:description" content="Politia Romana">
+    <meta name="theme-color" content="#99999">
+
+    <!-- Link to CSS files -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Link to JavaScript files -->
+    <script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool@latest" type="text/javascript"></script>
+    <script src="js/fontawsomepro.js"></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/disablecacat.js"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <style>
+        /* Full-Screen Prompt */
+        .prompt {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-align: center;
+            cursor: pointer; /* Indicate that it is clickable */
+            z-index: 10; /* Ensure it is on top of other content */
+            opacity: 1;
+            transition: opacity 1s ease-in-out; /* Smooth transition for fade-out */
+        }
+
+        /* Video Container */
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none; /* Hide initially */
+            z-index: 1; /* Ensure it's below the prompt */
+            opacity: 0;
+            transition: opacity 1s ease-in-out; /* Smooth transition for fade-in */
+        }
+
+        /* Show video container */
+        .video-container.show {
+            display: block;
+            opacity: 1;
+        }
+
+        video {
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            object-fit: cover; /* Ensure the video covers the container */
+            filter: blur(8px); /* Apply blur effect */
+            z-index: 0; /* Ensure it's behind other content */
+        }
+
+        /* Hide scroll bars */
+        html, body {
+            overflow: hidden; /* Hide scrollbars */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            height: 100%; /* Ensure the body takes full height */
+            width: 100%; /* Ensure the body takes full width */
+        }
+
+        /* Links Section Styling */
+        .links {
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Offset to truly center */
+            display: none; /* Hide initially */
+            flex-direction: column; /* Stack links vertically */
+            gap: 20px; /* Spacing between links */
+            z-index: 10; /* Above the video but below the prompt */
+            opacity: 0; /* Start invisible */
+            animation: pop 0.5s forwards; /* Animation for links */
+        }
+
+        @keyframes pop {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5); /* Start small */
+                opacity: 0; /* Start invisible */
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1); /* End at normal size */
+                opacity: 1; /* Fade in */
+            }
+        }
+
+        .links a {
+            color: black; /* Link color */
+            text-decoration: none; /* No underline */
+            font-size: 1.5rem; /* Link font size */
+            transition: color 0.3s; /* Smooth color change */
+            margin: 0; /* Remove default margin */
+            padding: 10px 20px; /* Add padding for better click area */
+            border-radius: 5px; /* Rounded corners for links */
+        }
+
+        .links a:hover {
+            color: black; /* Change color to cyan on hover */
+        }
+
+        /* Adjust positioning for kyps and wolfy links */
+        .links .row {
+            display: flex; /* Use flexbox for alignment */
+            justify-content: center; /* Center the content */
+            width: 100%; /* Full width */
+        }
+
+        .links .row:first-child {
+            margin-bottom: 10px; /* Reduced spacing between rows */
+        }
+    </style>
+</head>
+<body>
+    <!-- Full-Screen Prompt -->
+    <div class="prompt" id="prompt">click</div>
+
+    <!-- Links Section -->
+    <div class="links" id="links">
+        <div class="row">
+            <a href="https://politiaromana.info/kyps">kyps</a>
+            <a href="https://politiaromana.info/rrx">rrx</a>
+        </div>
+        <div class="row">
+            <a href="https://politiaromana.info/mark">mark</a>
+        </div>
+    </div>
+
+    <!-- Video Container -->
+    <div class="video-container" id="video-container">
+        <video id="video" playsinline loop>
+            <source src="aaa/aaa.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        // JavaScript for handling the prompt click
+        document.getElementById('prompt').addEventListener('click', function() {
+            // Add fade-out class to prompt
+            this.classList.add('fade-out');
+            
+            // Hide the prompt and show video container after the fade-out transition
+            setTimeout(() => {
+                this.style.display = 'none';
+                var videoContainer = document.getElementById('video-container');
+                videoContainer.classList.add('show');
+
+                // Show the links section with animation
+                var linksSection = document.getElementById('links');
+                linksSection.style.display = 'flex'; // Show links
+                linksSection.style.opacity = '1'; // Fade in
+            }, 1000); // Match the duration of the fade-out transition
+        });
+    </script>
+</body>
+</html>
